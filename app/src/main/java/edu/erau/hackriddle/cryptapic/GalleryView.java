@@ -1,6 +1,8 @@
 package edu.erau.hackriddle.cryptapic;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -39,7 +41,8 @@ public class GalleryView extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.action_camera:
                 Toast.makeText(this, "Camera!", Toast.LENGTH_SHORT).show();
-                return true;
+                dispatchTakePictureIntent();
+            return true;
             case R.id.action_share:
                 Toast.makeText(this, "Share!", Toast.LENGTH_SHORT).show();
                 return true;
@@ -48,6 +51,14 @@ public class GalleryView extends AppCompatActivity {
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
+        }
+    }
+
+    private void dispatchTakePictureIntent() {
+        final int REQUEST_IMAGE_CAPTURE = 1;
+        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+            startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
         }
     }
 }
