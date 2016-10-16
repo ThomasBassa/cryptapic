@@ -6,4 +6,7 @@
     <string name="passwordHint">Password</string>
     <string name="loginButton">Login</string>
     <string name="i_already_have_an_account">I already have an account</string>
+    <string name="take_picture">Take Picture</string>
+    <string name="share_secure">Share Securely</string>
+    <string name="search">Search</string>
 </resources>
