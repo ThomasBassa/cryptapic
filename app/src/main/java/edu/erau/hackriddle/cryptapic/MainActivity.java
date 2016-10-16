@@ -12,7 +12,6 @@ import android.widget.Toast;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -36,8 +35,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private boolean keysExist() {
-        File home = getFilesDir();
-        return Arrays.asList(home.listFiles()).contains(new File(home, "userKeys"));
+        return new File(getFilesDir(), "userKeys").exists();
     }
 
     public void attemptLogin(View view) {
