@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void recoverAccount(View view) {
-        Intent accountExists = new Intent(this, AccountExsists.class);
+        Intent accountExists = new Intent(this, AccountExists.class);
         startActivity(accountExists);
     }
 }
