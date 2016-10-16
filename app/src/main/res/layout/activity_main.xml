@@ -11,33 +11,12 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="edu.erau.hackriddle.cryptapic.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/username"
-        android:textSize="20.0dp"
-        android:id="@+id/usernameText"
-        android:layout_alignBaseline="@+id/unsernameLogin"
-        android:layout_alignBottom="@+id/unsernameLogin"
-        android:layout_alignParentStart="true"
-        android:paddingTop="0.2dp"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/password"
-        android:textSize="20.0dp"
-        android:id="@+id/passwordText"
-        android:layout_below="@id/usernameText"
-        android:paddingTop="20.0dp"/>
-
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textEditNoPasteWindowLayout="@android:style/Theme.Light"
         android:id="@+id/unsernameLogin"
         android:layout_alignParentTop="true"
-        android:layout_toRightOf="@id/usernameText"
         android:inputType="text"
         android:hint="@string/usernameHint"
         />
@@ -47,7 +26,6 @@
         android:layout_height="wrap_content"
         android:textEditNoPasteWindowLayout="@android:style/Theme.Light"
         android:id="@+id/passwordLogin"
-        android:layout_toRightOf="@id/passwordText"
         android:layout_below="@id/unsernameLogin"
         android:inputType="textPassword"
         android:hint="@string/passwordHint"/>
