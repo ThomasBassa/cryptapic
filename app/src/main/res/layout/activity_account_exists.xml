@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/activity_main"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="edu.erau.hackriddle.cryptapic.MainActivity">
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textEditNoPasteWindowLayout="@android:style/Theme.Light"
+        android:id="@+id/unsernameLogin"
+        android:layout_alignParentTop="true"
+        android:inputType="text"
+        android:hint="@string/usernameHint"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textEditNoPasteWindowLayout="@android:style/Theme.Light"
+        android:id="@+id/passwordLogin"
+        android:layout_below="@id/unsernameLogin"
+        android:inputType="textPassword"
+        android:hint="@string/passwordHint"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/loginButton"
+        android:layout_below="@id/passwordLogin"
+        android:layout_centerHorizontal="true"
+        android:text="@string/loginButton"
+        android:onClick="attemptLogin" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/accountButton"
+        android:layout_alignParentBottom="true"
+        android:text="@string/i_already_have_an_account"
+        android:layout_centerHorizontal="true"
+        android:background="@null"
+        android:textSize="10.0dp"
+        android:onClick="recoverAccount" />
+
+</RelativeLayout>
+
