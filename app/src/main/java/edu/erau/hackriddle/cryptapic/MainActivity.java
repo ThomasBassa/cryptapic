@@ -15,6 +15,14 @@ import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity {
 
+    /**
+     * Prepend this string to private keys before encrypting them with the user
+     * password. Use this to detect whether later decryption is successful.
+     */
+    private static final String PRIVATE_KEY_PREFIX = "CAP-PK";
+    public static final String KEY_FILE_NAME = ".userKeys";
+
+
     private EditText userField;
     private EditText passField;
     private Button accountButton;
@@ -35,18 +43,51 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private boolean keysExist() {
-        return new File(getFilesDir(), "userKeys").exists();
+        return new File(getFilesDir(), KEY_FILE_NAME).exists();
     }
 
     public void attemptLogin(View view) {
-        //Going to auth later...
-        Intent gallery = new Intent(this, GalleryView.class);
-        startActivity(gallery);
+        Log.v("cryptapic", "Login attempt.");
+        if (keysExist()) {
+            //Log in the existing user
+            String decryptResult = decryptPrivateKey(passField.getText().toString());
+            if (decryptResult.startsWith(PRIVATE_KEY_PREFIX)) {
+                //Successfully decrypted
+
+                Intent gallery = new Intent(this, GalleryView.class);
+                //TODO Strip prefix from PK & store this in the intent
+
+                //Open the gallery!
+                startActivity(gallery);
+            } else {
+                //Decrypt fail
+                passField.setText("");
+                Toast.makeText(this, "The password was wrong", Toast.LENGTH_LONG).show();
+            }
+        } else {
+            Log.v("cryptapic", "Creating a new user!");
+            //Create new key file/DB user
+
+            //Generate an RSA? key pair securely
+
+            //Write the public key to KEY_FILE_NAME as the first? line
+
+            //Encrypt PRIVATE_KEY_PREFIX + the private key using the user password
+
+            //Write that as the second line of keyfile
+
+            //Publish public key & username to AWS or similar
+
+        }
+    }
+
+    private String decryptPrivateKey(String userPassword) {
+        return PRIVATE_KEY_PREFIX + "result of decrypting PK in KEY_FILE_NAME";
     }
 
     public void recoverAccount(View view) {
         //This is all test code for the keysExist method
-        File testFile = new File(getFilesDir(), "userKeys");
+        File testFile = new File(getFilesDir(), KEY_FILE_NAME);
         if (keysExist()) {
             if (!testFile.delete()) {
                 Log.wtf("cryptapic", "Couldn't delete test file though exists?");
