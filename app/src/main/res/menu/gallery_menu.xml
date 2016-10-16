@@ -1,17 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <item
         android:id="@+id/action_camera"
         android:icon="@drawable/ic_action_camera"
-        android:title="@string/take_picture"/>
+        android:title="@string/take_picture"
+        app:showAsAction="ifRoom"/>
 
     <item
         android:id="@+id/action_share"
         android:icon="@drawable/ic_action_share"
-        android:title="@string/share_secure"/>
+        android:title="@string/share_secure"
+        app:showAsAction="ifRoom"/>
 
     <item
         android:id="@+id/action_search"
         android:icon="@drawable/ic_action_search"
-        android:title="@string/search"/>
+        android:title="@string/search"
+        app:showAsAction="ifRoom"/>
 </menu>
