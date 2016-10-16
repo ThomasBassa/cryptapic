@@ -14,5 +14,60 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!\nNewitt" />
+        android:text="@string/username"
+        android:textSize="20.0dp"
+        android:id="@+id/usernameText"
+        android:layout_alignBaseline="@+id/unsernameLogin"
+        android:layout_alignBottom="@+id/unsernameLogin"
+        android:layout_alignParentStart="true"
+        android:paddingTop="0.2dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/password"
+        android:textSize="20.0dp"
+        android:id="@+id/passwordText"
+        android:layout_below="@id/usernameText"
+        android:paddingTop="20.0dp"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textEditNoPasteWindowLayout="@android:style/Theme.Light"
+        android:id="@+id/unsernameLogin"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@id/usernameText"
+        android:inputType="text"
+        android:hint="@string/usernameHint"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textEditNoPasteWindowLayout="@android:style/Theme.Light"
+        android:id="@+id/passwordLogin"
+        android:layout_toRightOf="@id/passwordText"
+        android:layout_below="@id/unsernameLogin"
+        android:inputType="textPassword"
+        android:hint="@string/passwordHint"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/loginButton"
+        android:layout_below="@id/passwordLogin"
+        android:layout_centerHorizontal="true"
+        android:text="@string/loginButton"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/accountButton"
+        android:layout_alignParentBottom="true"
+        android:text="@string/i_already_have_an_account"
+        android:layout_centerHorizontal="true"
+        android:background="@null"
+        android:textSize="10.0dp"/>
+
 </RelativeLayout>
