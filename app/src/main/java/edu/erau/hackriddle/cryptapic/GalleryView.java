@@ -1,13 +1,12 @@
 package edu.erau.hackriddle.cryptapic;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -51,7 +50,6 @@ public class GalleryView extends AppCompatActivity {
             case R.id.action_camera:
                 Toast.makeText(this, "Camera!", Toast.LENGTH_SHORT).show();
                 dispatchTakePictureIntent();
-                galleryAddPic();
                 return true;
             case R.id.action_share:
                 Toast.makeText(this, "Share!", Toast.LENGTH_SHORT).show();
@@ -70,11 +68,11 @@ public class GalleryView extends AppCompatActivity {
         // Create an image file name
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
         String imageFileName = "JPEG_" + timeStamp + "_";
-        File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
+        File storageDir = getFilesDir();
         File image = File.createTempFile(
-                imageFileName,  /* prefix */
-                ".jpg",         /* suffix */
-                storageDir      /* directory */
+                imageFileName,  // prefix
+                ".jpg",         // suffix
+                storageDir      // directory
         );
 
         // Save a file: path for use with ACTION_VIEW intents
@@ -96,6 +94,7 @@ public class GalleryView extends AppCompatActivity {
                 photoFile = createImageFile();
             } catch (IOException ex) {
                 // Error occurred while creating the File
+                Log.e("cryptapic", ex.toString(), ex);
             }
             // Continue only if the File was successfully created
             if (photoFile != null) {
@@ -105,14 +104,6 @@ public class GalleryView extends AppCompatActivity {
                 takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
                 startActivityForResult(takePictureIntent, REQUEST_TAKE_PHOTO);
             }
-        }
-    }
-
-    private void galleryAddPic() {
-        Intent mediaScanIntent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
-        File f = new File(mCurrentPhotoPath);
-        Uri contentUri = Uri.fromFile(f);
-        mediaScanIntent.setData(contentUri);
-        this.sendBroadcast(mediaScanIntent);
+        } //TODO else user doesn't have a camera app!
     }
 }
