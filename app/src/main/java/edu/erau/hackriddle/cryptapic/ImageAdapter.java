@@ -33,6 +33,7 @@ public class ImageAdapter extends BaseAdapter {
         return 0;
     }
 
+
     // create a new ImageView for each item referenced by the Adapter
     public View getView(int position, View convertView, ViewGroup parent) {
         ImageView imageView;
@@ -68,5 +69,6 @@ public class ImageAdapter extends BaseAdapter {
             R.drawable.sample_2, R.drawable.sample_3,
             R.drawable.sample_4, R.drawable.sample_5,
             R.drawable.sample_6, R.drawable.sample_7
+
     };
 }
