@@ -12,5 +12,8 @@ using public key encryption. It is far from complete.
 The project was built using Android Studio, and should be easily checked out
 using that tool.
 
-## Design Image
+## Design Sketch
 ![A whiteboard drawing depicting the flow of information throughout our app](Design.jpg)
+
+## Licence
+MIT
