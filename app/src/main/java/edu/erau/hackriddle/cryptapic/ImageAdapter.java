@@ -72,4 +72,3 @@ public class ImageAdapter extends BaseAdapter {
 
     };
 }
-i
